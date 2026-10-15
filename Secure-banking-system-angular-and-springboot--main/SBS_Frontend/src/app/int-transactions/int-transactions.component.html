@@ -1,0 +1,47 @@
+<ng-container *ngIf="getUserRole() === userRoles.internal">
+    <app-intheader></app-intheader>
+</ng-container>
+<ng-container *ngIf="getUserRole() === userRoles.admin">
+    <app-header-admin></app-header-admin>
+</ng-container>
+<div class="container">
+    <input type="text" [(ngModel)]="accountNumber" placeholder="Enter account number">
+    <button class="btn-submit" (click)="onSubmit()">Submit</button>
+    <label class="radio-label">
+        <input type="radio" name="transactionScope" (change)="onRadioChange($event)" [checked]="showAll"> All
+    </label>
+</div>
+
+<div class="transaction-table" *ngIf="transactions.length > 0">
+    <table>
+        <thead>
+            <tr>
+                <th>Transaction ID</th>
+                <th>Sender Account</th>
+                <th>Receiver Account</th>
+                <th>Transaction Type</th>
+                <th>Amount</th>
+                <th>Created Time</th>
+                <th>Status</th>
+                <th *ngIf="getUserRole() === userRoles.admin">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transactions">
+                <td>{{ transaction?.transactionId }}</td>
+                <td>{{ transaction?.senderAcc?.accountNumber }}</td>
+                <td>{{ transaction?.receiverAcc?.accountNumber }}</td>
+                <td>{{ transaction?.transactionType }}</td>
+                <td>{{ transaction?.amount }}</td>
+                <td>{{ transaction?.createdtime }}</td>
+                <td>{{ transaction?.status }}</td>
+                <td *ngIf="getUserRole() === userRoles.admin">
+                    <button class="btn-edit" (click)="updateTransaction(transaction)">Edit</button>
+                </td>
+                <!-- <td>
+                    <button class="btn-edit" (click)="updateTransaction(transaction)">Edit</button>
+                </td> -->
+            </tr>
+        </tbody>
+    </table>
+</div>

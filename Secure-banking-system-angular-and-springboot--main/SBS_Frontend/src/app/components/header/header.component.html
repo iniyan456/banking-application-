@@ -1,0 +1,40 @@
+<header class="header">
+  <div class="container">
+    <div class="logo">
+      <a href="#">Your Logo</a>
+    </div>
+    <div class="navbar">
+      <a href="/home" class="active">Dashboard</a>
+    </div>
+    <div class="navbar">
+      <a href="/profile">Profile</a>
+    </div>
+    <div class="navbar">
+      <a href="/accounts">Accounts</a>
+      <!-- <button class="dropbtn">Accounts</button> -->
+      <!-- <div class="dropdown-content">
+        <a href="#">Checkings</a>
+        <a href="#">Savings</a>
+
+      </div> -->
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn">Transactions</button>
+      <div class="dropdown-content">
+        <a href="/credit">Credit</a>
+        <a href="/tran-his">Transaction History</a>
+        <a href="/merchant-requests" *ngIf="getUserRole() === userRoles.customer">Merchant/Client requests</a>
+        <a href="/payment-gateway" *ngIf="getUserRole() === userRoles.customer">Send Amount</a>
+        <a href="/request-payment" *ngIf="getUserRole() === userRoles.merchant">Request Payment</a>
+      </div>
+    </div>
+    <div class="navbar">
+      <a href="/user-activity">Activity</a>
+    </div>  
+    <div class="navbar">
+      <a href="#" id="logout">Logout</a>
+    </div>
+    <div>
+  </div>
+  </div>
+</header>

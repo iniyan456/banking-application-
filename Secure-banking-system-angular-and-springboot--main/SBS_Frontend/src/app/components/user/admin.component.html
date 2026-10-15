@@ -1,0 +1,39 @@
+<app-header-admin></app-header-admin>
+
+<div class="user-list">
+  <h2>User List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Phone Number</th>
+        <th>Status</th>
+        <th>Action</th>
+         
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.userId }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.emailAddress }}</td>
+        <td>{{ user.address }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.phoneNumber }}</td>
+        <td>{{ user.status }}</td>
+        <td>
+          <button *ngIf="user.status === 'Active'" (click)="deactivateUser(user.userId)">Deactivate</button>
+          <button *ngIf="user.status === 'Inactive'" (click)="activateUser(user.userId)">Activate</button>
+        </td>
+
+        
+      </tr>
+    </tbody>
+  </table>
+</div>

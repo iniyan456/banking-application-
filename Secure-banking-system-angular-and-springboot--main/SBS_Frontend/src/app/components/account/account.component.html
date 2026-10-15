@@ -1,0 +1,30 @@
+<app-header></app-header>
+<table>
+  <thead>
+    <tr>
+      <th>Account ID</th>
+      <th>Account Number</th>
+      <th>Account Type</th>
+      <th>Status</th>
+      <th>Balance</th>
+      <th>Action</th> <!-- New column for actions -->
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let account of accounts; let i = index"
+    [ngClass]="{
+      'request-pending': account.requestPending, 
+      'inactive-pending': account.status === 'INACTIVE'
+    }">
+        <td>{{ account.accountId }}</td>
+        <td>{{ account.accountNumber }}</td>
+        <td>{{ account.accountType }}</td>
+        <td>{{ account.status }}</td>
+        <td>{{ account.balance }}</td>
+        <td><button class="delete-btn" 
+          *ngIf="account.status !== 'INACTIVE'" 
+          (click)="initiateDeleteRequest(i)" 
+          [disabled]="account.requestPending">Delete Account</button></td>
+      </tr>
+  </tbody>
+</table>

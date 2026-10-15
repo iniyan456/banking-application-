@@ -1,0 +1,130 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #EFF5F5; /* Using the lightest shade for the overall background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  width: 360px;
+  padding: 40px; /* Adjusted padding for proper spacing */
+  
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: #D6E4E5; /* Light grey-blue for the container background */
+  color: #497174; /* Darker shade of blue for text */
+  margin: auto; /* Ensures container is centered */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers items vertically in the container */
+}
+
+h1 {
+  color: #EB6440; /* Vibrant orange for headers */
+}
+
+h3, label {
+  color: #497174; /* Darker blue for subheadings and labels */
+}
+
+.field input, .field input::placeholder {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0 16px; /* Adjusted margins for better spacing */
+  
+  border-radius: 4px;
+  background-color: #EFF5F5; /* Lightest shade for input backgrounds */
+  color: #497174; /* Text color */
+}
+
+.field .p-error {
+  color: #EB6440; /* Vibrant orange for error messages */
+  margin-top: -8px; /* Tightens space between error message and input field */
+  margin-bottom: 16px; /* Ensures consistent spacing below error messages */
+}
+
+button {
+  width: auto; /* Adjusted to fit text content */
+  padding: 10px 20px; /* Slightly less padding for a snug fit around text */
+  border: none;
+  border-radius: 4px;
+  background-color: #EB6440; /* Vibrant orange for buttons */
+  color: #FFF; /* White text for contrast */
+  cursor: pointer;
+  align-self: center; /* Ensures button is centered in the container */
+  margin-top: 20px; /* Consistent margin above the button */
+}
+
+.mt-2 {
+  text-align: center; /* Centers the 'Already a member?' text */
+  width: 100%; /* Ensures it occupies the full width of its parent */
+  margin-top: 20px; /* Space above the text for spacing */
+}
+
+.mt-2 a {
+  color: #497174; /* Darker blue for links */
+  font-weight: bold; /* Makes the link text bold */
+}
+
+.mt-2 a:hover {
+  color: #EB6440; /* Vibrant orange for hover effect */
+  text-decoration: none; /* Removes underline on hover */
+}
+p-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-container button {
+  align-self: center; /* Centers the button in the flex container */
+  width: 100%; /* Adjust the width as needed */
+}
+
+/* Add these styles within your existing CSS */
+
+/* Style adjustments for the account type radio buttons */
+.field .p-field-radiobutton {
+  display: flex;
+  align-items: center; /* Vertically aligns the radio button with its label */
+  margin-bottom: 8px; /* Provides consistent spacing below each option */
+}
+
+.field .p-field-radiobutton label {
+  margin-left: 8px; /* Spacing between the radio button and the label */
+  color: #497174; /* Text color to match your scheme */
+}
+
+/* Styles to improve spacing and layout of the radio button group */
+.field-account-type {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns radio buttons to the start of the flex container */
+}
+
+/* Optionally, if you wish to use custom radio buttons for a more consistent look */
+.custom-radio-button {
+  appearance: none; /* Hides the default radio button appearance */
+  width: 16px; /* Size of the custom radio button */
+  height: 16px; /* Size of the custom radio button */
+  border: 2px solid #497174; /* Border color to match your scheme */
+  border-radius: 50%; /* Makes it circular */
+  background-color: #EFF5F5; /* Background to match your input fields */
+  cursor: pointer; /* Changes the cursor to a pointer on hover */
+  position: relative; /* Positioning context for the inner circle */
+  margin-right: 8px; /* Spacing between the button and label */
+}
+
+.custom-radio-button:checked::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: #EB6440; /* Color when checked to match your theme */
+  border-radius: 50%;
+}

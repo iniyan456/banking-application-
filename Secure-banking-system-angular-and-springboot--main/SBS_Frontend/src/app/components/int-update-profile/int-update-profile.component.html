@@ -1,0 +1,73 @@
+<app-intheader></app-intheader>
+<div class="profile-container" *ngFor="let request of profileRequestsList">
+  <div class="dropdown open">
+    <h3> Profile change request for {{ request.user.username }} </h3>
+    <div class="dropdown-content">
+      <table class="profile-table">
+        <tr>
+          <td><strong>Current Profile</strong></td>
+          <td><strong>Requested Changes</strong></td>
+         
+        </tr>
+        <tr>
+          <td>
+            <table>
+              <!-- <tr>
+                <td><strong>Username:</strong></td>
+                <td>{{ request.user.username }}</td>
+              </tr> -->
+              <tr>
+                <td><strong>First Name:</strong></td>
+                <td>{{ request.user.firstName }}</td>
+              </tr>
+              <tr>
+                <td><strong>Last Name:</strong></td>
+                <td>{{ request.user.lastName }}</td>
+              </tr>
+              <tr>
+                <td><strong>Email:</strong></td>
+                <td>{{ request.user.emailAddress }}</td>
+              </tr>
+              <tr>
+                <td><strong>Address:</strong></td>
+                <td>{{ request.user.address }}</td>
+              </tr>
+              <tr>
+                <td><strong>Phone Number:</strong></td>
+                <td>{{ request.user.phoneNumber }}</td>
+              </tr>
+            </table>
+          </td>
+          <td>
+            <table>
+              <tr>
+                <td><strong>First Name:</strong></td>
+                <td>{{ getRequestedValue(request.updateData, 'firstName') }}</td>
+              </tr>
+              <tr>
+                <td><strong>Last Name:</strong></td>
+                <td>{{ getRequestedValue(request.updateData, 'lastName') }}</td>
+              </tr>
+              <tr>
+                <td><strong>Email:</strong></td>
+                <td>{{ getRequestedValue(request.updateData, 'emailAddress') }}</td>
+              </tr>
+              <tr>
+                <td><strong>Address:</strong></td>
+                <td>{{ getRequestedValue(request.updateData, 'address') }}</td>
+              </tr>
+              <tr>
+                <td><strong>Phone Number:</strong></td>
+                <td>{{ getRequestedValue(request.updateData, 'phoneNumber') }}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <div class="button-container">
+        <button class="approve-btn" (click)="approveRequest(request.id)">Approve</button>
+        <button class="reject-btn" (click)="rejectRequest(request.id)">Reject</button>
+      </div>
+    </div>
+  </div>
+</div>
